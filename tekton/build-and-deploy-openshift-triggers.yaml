@@ -20,7 +20,7 @@ spec:
     metadata:
       generateName: catapp-build-and-deploy-
     spec:
-      serviceAccountName: $(params.SERVICE_ACCOUNT)
+      # serviceAccountName: $(params.SERVICE_ACCOUNT)
       pipelineRef:
         name: build-and-deploy-openshift
       resources:
@@ -56,8 +56,8 @@ spec:
     value: catapp
   - name: DEPLOYMENT
     value: catapp
-  - name: SERVICE_ACCOUNT
-    value: pipeline
+  # - name: SERVICE_ACCOUNT
+  #   value: pipeline
 ---
 apiVersion: v1
 kind: ServiceAccount
@@ -106,15 +106,15 @@ spec:
     bindings:
     - name: catapp-build-and-deploy
 ---
-# apiVersion: route.openshift.io/v1
-# kind: Route
-# metadata:
-#   labels:
-#     eventlistener: catapp
-#   name: el-catapp
-# spec:
-#   port:
-#     targetPort: http-listener
-#   to:
-#     kind: Service
-#     name: el-catapp
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  labels:
+    eventlistener: catapp
+  name: el-catapp
+spec:
+  port:
+    targetPort: http-listener
+  to:
+    kind: Service
+    name: el-catapp
