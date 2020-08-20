@@ -59,10 +59,10 @@ spec:
   - name: SERVICE_ACCOUNT
     value: pipeline
 ---
-# apiVersion: v1
-# kind: ServiceAccount
-# metadata:
-#   name: catapp
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: catapp
 ---
 kind: Role
 apiVersion: rbac.authorization.k8s.io/v1
@@ -98,7 +98,7 @@ kind: EventListener
 metadata:
   name: catapp
 spec:
-  # serviceAccountName: catapp
+  serviceAccountName: catapp
   triggers:
   - name: pullrequest-build-and-deploy
     template:
