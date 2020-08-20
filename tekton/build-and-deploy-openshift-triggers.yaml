@@ -69,7 +69,7 @@ apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: catapp
 rules:
-# Permissions for every EventListener deployment to functionasd
+# Permissions for every EventListener deployment to functionas
 - apiGroups: ["triggers.tekton.dev"]
   resources: ["eventlisteners", "triggerbindings", "triggertemplates"]
   verbs: ["get"]
