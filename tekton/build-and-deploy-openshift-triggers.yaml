@@ -106,15 +106,15 @@ spec:
     bindings:
     - name: catapp-build-and-deploy
 ---
-apiVersion: route.openshift.io/v1
-kind: Route
-metadata:
-  labels:
-    eventlistener: catapp
-  name: el-catapp
-spec:
-  port:
-    targetPort: http-listener
-  to:
-    kind: Service
-    name: el-catapp
+# apiVersion: route.openshift.io/v1
+# kind: Route
+# metadata:
+#   labels:
+#     eventlistener: catapp
+#   name: el-catapp
+# spec:
+#   port:
+#     targetPort: http-listener
+#   to:
+#     kind: Service
+#     name: el-catapp
